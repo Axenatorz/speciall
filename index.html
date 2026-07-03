@@ -1,0 +1,1027 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
+    />
+    <title>semangatttt cesaaa❤️</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --blush: #fbe4ec;
+        --lavender: #e9e0f7;
+        --lavender-deep: #b79bdb;
+        --rose: #e88cae;
+        --rose-deep: #d9668e;
+        --plum: #4a2e4d;
+        --cream: #fff9f7;
+        --gold: #e3b778;
+
+        --font-display: "Cormorant Garamond", serif;
+        --font-script: "Caveat", cursive;
+        --font-body: "Quicksand", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background:
+          radial-gradient(
+            circle at 12% 8%,
+            rgba(232, 140, 174, 0.32),
+            transparent 42%
+          ),
+          radial-gradient(
+            circle at 88% 92%,
+            rgba(183, 155, 219, 0.32),
+            transparent 42%
+          ),
+          linear-gradient(160deg, var(--blush) 0%, var(--lavender) 100%);
+        background-attachment: fixed, fixed, fixed;
+        color: var(--plum);
+        font-family: var(--font-body);
+        overflow-x: hidden;
+      }
+
+      .wrap {
+        position: relative;
+        z-index: 2;
+        max-width: 480px;
+        margin: 0 auto;
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+
+      /* ---------- AMBIENT PARTICLES ---------- */
+      .ambient-layer {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 1;
+      }
+      .petal {
+        position: absolute;
+        top: 105%;
+        will-change: transform, opacity;
+        animation: petalDrift linear forwards;
+        filter: drop-shadow(0 2px 4px rgba(74, 46, 77, 0.15));
+      }
+      @keyframes petalDrift {
+        0% {
+          transform: translate(0, 0) rotate(0deg);
+          opacity: 0;
+        }
+        8% {
+          opacity: 0.55;
+        }
+        50% {
+          transform: translate(var(--sway, 0px), -55vh) rotate(180deg);
+        }
+        92% {
+          opacity: 0.4;
+        }
+        100% {
+          transform: translate(calc(var(--sway, 0px) * 1.6), -115vh)
+            rotate(340deg);
+          opacity: 0;
+        }
+      }
+
+      /* ---------- READING PROGRESS ---------- */
+      .progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: rgba(74, 46, 77, 0.08);
+        z-index: 60;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+      .progress-bar.visible {
+        opacity: 1;
+      }
+      .progress-fill {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(
+          90deg,
+          var(--rose-deep),
+          var(--rose),
+          var(--lavender-deep)
+        );
+        transition: width 0.1s linear;
+      }
+
+      /* ---------- MUSIC TOGGLE ---------- */
+      .music-toggle {
+        all: unset;
+        cursor: pointer;
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 249, 247, 0.75);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(232, 140, 174, 0.35);
+        box-shadow: 0 12px 28px -14px rgba(74, 46, 77, 0.5);
+        z-index: 70;
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(0.85);
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease,
+          box-shadow 0.3s ease;
+      }
+      .music-toggle.visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scale(1);
+      }
+      .music-toggle:active {
+        transform: scale(0.9);
+      }
+      .music-toggle:focus-visible {
+        outline: 2px solid var(--rose-deep);
+        outline-offset: 4px;
+      }
+      .music-toggle .eq {
+        display: flex;
+        align-items: flex-end;
+        gap: 3px;
+        height: 16px;
+      }
+      .music-toggle .eq span {
+        width: 3px;
+        background: var(--rose-deep);
+        border-radius: 2px;
+        height: 6px;
+        animation: eqBounce 0.9s ease-in-out infinite;
+        animation-play-state: paused;
+      }
+      .music-toggle.playing .eq span {
+        animation-play-state: running;
+      }
+      .music-toggle .eq span:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .music-toggle .eq span:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+      .music-toggle .eq span:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      @keyframes eqBounce {
+        0%,
+        100% {
+          height: 4px;
+        }
+        50% {
+          height: 16px;
+        }
+      }
+      .music-toggle::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 2px;
+        height: 28px;
+        border-radius: 2px;
+        background: var(--rose-deep);
+        transform: translate(-50%, -50%) rotate(45deg);
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+      .music-toggle:not(.playing)::after {
+        opacity: 0.75;
+      }
+
+      /* ---------- COVER ---------- */
+      .cover {
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 28px;
+        transition: opacity 0.5s ease;
+      }
+      .corner-flourish {
+        position: absolute;
+        width: 92px;
+        height: 92px;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .corner-flourish--tl {
+        top: 16px;
+        left: 6px;
+        color: var(--rose);
+        opacity: 0.28;
+      }
+      .corner-flourish--br {
+        bottom: 16px;
+        right: 6px;
+        color: var(--lavender-deep);
+        opacity: 0.28;
+        transform: rotate(180deg);
+      }
+
+      .cover-inner {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .eyebrow {
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--rose-deep);
+        font-weight: 600;
+        margin: 0 0 10px;
+      }
+      .cover-title {
+        font-family: var(--font-display);
+        font-size: clamp(2.2rem, 9.5vw, 2.9rem);
+        font-weight: 600;
+        margin: 0;
+        line-height: 1.15;
+        color: var(--rose-deep);
+        background: linear-gradient(
+          120deg,
+          var(--rose-deep),
+          var(--rose) 30%,
+          var(--gold) 50%,
+          var(--rose) 70%,
+          var(--lavender-deep)
+        );
+        background-size: 220% auto;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: titleShimmer 6s ease-in-out infinite;
+      }
+      @keyframes titleShimmer {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      .cover-sub {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: clamp(1.05rem, 4.5vw, 1.25rem);
+        color: #6b4e6e;
+        margin: 10px 0 0;
+        max-width: 30ch;
+      }
+
+      .envelope-wrap {
+        perspective: 900px;
+        margin: 34px 0 16px;
+      }
+      .envelope-btn {
+        all: unset;
+        cursor: pointer;
+        display: block;
+        position: relative;
+        width: 206px;
+        height: 138px;
+        animation: hint 2.8s ease-in-out infinite;
+      }
+      .envelope-btn:focus-visible {
+        outline: 2px solid var(--rose);
+        outline-offset: 6px;
+        border-radius: 8px;
+      }
+      @keyframes hint {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.025);
+        }
+      }
+      .envelope-base {
+        position: absolute;
+        inset: 0;
+        background: var(--cream);
+        border: 1px solid rgba(74, 46, 77, 0.14);
+        border-radius: 8px;
+        box-shadow:
+          0 20px 36px -20px rgba(74, 46, 77, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        overflow: hidden;
+      }
+      .envelope-base::before,
+      .envelope-base::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        height: 0;
+      }
+      .envelope-base::before {
+        left: 0;
+        border-style: solid;
+        border-width: 0 0 68px 103px;
+        border-color: transparent transparent rgba(232, 140, 174, 0.2)
+          transparent;
+      }
+      .envelope-base::after {
+        right: 0;
+        border-style: solid;
+        border-width: 0 103px 68px 0;
+        border-color: transparent transparent rgba(199, 168, 224, 0.24)
+          transparent;
+      }
+      .envelope-flap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 74px;
+        background: linear-gradient(135deg, var(--rose), var(--lavender));
+        clip-path: polygon(0 0, 100% 0, 50% 100%);
+        transform-origin: top center;
+        transition: transform 0.7s cubic-bezier(0.62, -0.15, 0.4, 1.3);
+        z-index: 2;
+      }
+      .envelope-seal {
+        position: absolute;
+        top: 58px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 15px;
+        box-shadow: 0 4px 10px rgba(227, 183, 120, 0.5);
+        z-index: 3;
+        transition: opacity 0.3s ease;
+        animation: sealGlow 2.4s ease-in-out infinite;
+      }
+      @keyframes sealGlow {
+        0%,
+        100% {
+          box-shadow: 0 4px 10px rgba(227, 183, 120, 0.5);
+        }
+        50% {
+          box-shadow:
+            0 4px 22px rgba(227, 183, 120, 0.9),
+            0 0 0 6px rgba(227, 183, 120, 0.15);
+        }
+      }
+      .envelope-seal::after {
+        content: "";
+        position: absolute;
+        inset: -4px;
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        border-radius: 50%;
+      }
+      .envelope-btn.open {
+        animation: none;
+      }
+      .envelope-btn.open .envelope-flap {
+        transform: rotateX(-165deg);
+      }
+      .envelope-btn.open .envelope-seal {
+        opacity: 0;
+      }
+
+      .tap-hint {
+        font-size: 0.88rem;
+        color: #6b4e6e;
+        margin: 6px 0 0;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      /* ---------- DIVIDER ---------- */
+      .divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin: 34px 0;
+        color: var(--rose-deep);
+        opacity: 0.7;
+      }
+      .divider-line {
+        flex: 1;
+        height: 1px;
+        background: currentColor;
+        opacity: 0.35;
+        max-width: 64px;
+      }
+      .divider svg {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+      }
+
+      /* ---------- CONTENT ---------- */
+      .content {
+        display: none;
+        padding: 48px 24px 60px;
+        opacity: 0;
+        transition: opacity 0.8s ease;
+      }
+      .content.visible {
+        display: block;
+        opacity: 1;
+      }
+
+      .intro-line {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 1.15rem;
+        text-align: center;
+        color: #6b4e6e;
+        max-width: 32ch;
+        margin: 0 auto;
+        line-height: 1.5;
+      }
+
+      .notes {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+      .note {
+        --rot: 0deg;
+        --ty: 18px;
+        position: relative;
+        background: var(--cream);
+        border: 1px solid rgba(232, 140, 174, 0.28);
+        border-radius: 14px;
+        padding: 24px 20px 22px;
+        font-size: 1rem;
+        line-height: 1.7;
+        box-shadow: 0 16px 30px -22px rgba(74, 46, 77, 0.45);
+        opacity: 0;
+        transform: rotate(var(--rot)) translateY(var(--ty));
+        transition:
+          opacity 0.6s ease,
+          transform 0.4s ease,
+          box-shadow 0.3s ease;
+      }
+      .note.in-view {
+        --ty: 0px;
+        opacity: 1;
+      }
+      .note p {
+        margin: 0;
+      }
+      .note-mark {
+        display: block;
+        font-family: var(--font-script);
+        font-size: 1.8rem;
+        color: var(--rose);
+        opacity: 0.55;
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+      @media (hover: hover) and (pointer: fine) {
+        .note:hover {
+          transform: rotate(var(--rot)) translateY(-6px);
+          box-shadow: 0 22px 40px -20px rgba(74, 46, 77, 0.55);
+        }
+      }
+      .note:nth-child(3n + 1) {
+        --rot: -1.6deg;
+      }
+      .note:nth-child(3n + 2) {
+        --rot: 1.2deg;
+      }
+      .note:nth-child(3n) {
+        --rot: -0.7deg;
+      }
+
+      .note::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        width: 54px;
+        height: 18px;
+        border-radius: 2px;
+        opacity: 0.65;
+        box-shadow: 0 2px 5px rgba(74, 46, 77, 0.18);
+      }
+      .note:nth-child(3n + 1)::before {
+        background: var(--rose);
+        transform: translateX(-50%) rotate(-4deg);
+      }
+      .note:nth-child(3n + 2)::before {
+        background: var(--gold);
+        transform: translateX(-50%) rotate(3deg);
+      }
+      .note:nth-child(3n)::before {
+        background: var(--lavender-deep);
+        transform: translateX(-50%) rotate(-2deg);
+      }
+
+      /* ---------- CLOSING ---------- */
+      .closing {
+        text-align: center;
+        margin-top: 8px;
+      }
+      .closing-line {
+        font-family: var(--font-display);
+        font-size: 1.35rem;
+        font-style: italic;
+        line-height: 1.55;
+        max-width: 26ch;
+        margin: 0 auto 26px;
+      }
+      .signature {
+        font-family: var(--font-script);
+        font-size: 1.6rem;
+        color: var(--rose-deep);
+        line-height: 1.4;
+        margin: 0 0 34px;
+      }
+      .sign-name {
+        font-size: 1.9rem;
+      }
+
+      .heart-btn {
+        all: unset;
+        cursor: pointer;
+        display: inline-block;
+        padding: 14px 30px;
+        border-radius: 999px;
+        background: linear-gradient(
+          120deg,
+          var(--rose-deep),
+          var(--rose),
+          var(--lavender-deep)
+        );
+        color: #fff;
+        font-family: var(--font-body);
+        font-weight: 600;
+        font-size: 0.95rem;
+        box-shadow: 0 14px 26px -14px rgba(217, 102, 142, 0.7);
+        transition: transform 0.25s ease;
+      }
+      .heart-btn:active {
+        transform: scale(0.96);
+      }
+      .heart-btn:focus-visible {
+        outline: 2px solid var(--plum);
+        outline-offset: 4px;
+      }
+
+      .thanks-note {
+        font-family: var(--font-display);
+        font-style: italic;
+        color: #6b4e6e;
+        margin-top: 18px;
+        font-size: 1.05rem;
+      }
+
+      .hearts-layer {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 50;
+      }
+      .floating-heart {
+        position: absolute;
+        bottom: 8%;
+        font-size: 20px;
+        color: var(--rose-deep);
+        animation: floatUp 2.3s ease-out forwards;
+      }
+      @keyframes floatUp {
+        0% {
+          transform: translate(0, 0) scale(0.8);
+          opacity: 0;
+        }
+        15% {
+          opacity: 1;
+        }
+        100% {
+          transform: translate(var(--drift, 0px), -72vh) scale(1.05);
+          opacity: 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress-bar" id="progressBar" aria-hidden="true">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="ambient-layer" id="ambientLayer" aria-hidden="true"></div>
+    <button
+      class="music-toggle"
+      id="musicToggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Aktifkan musik"
+    >
+      <span class="eq" aria-hidden="true"
+        ><span></span><span></span><span></span
+      ></span>
+    </button>
+
+    <div class="wrap">
+      <!-- COVER -->
+      <section class="cover" id="cover">
+        <svg
+          class="corner-flourish corner-flourish--tl"
+          viewBox="0 0 100 100"
+          aria-hidden="true"
+        >
+          <path
+            d="M5,95 C15,70 10,40 35,15"
+            stroke="currentColor"
+            stroke-width="1.4"
+            fill="none"
+            stroke-linecap="round"
+          />
+          <ellipse
+            cx="18"
+            cy="70"
+            rx="6"
+            ry="3"
+            transform="rotate(-40 18 70)"
+            fill="currentColor"
+          />
+          <ellipse
+            cx="24"
+            cy="50"
+            rx="6"
+            ry="3"
+            transform="rotate(-20 24 50)"
+            fill="currentColor"
+          />
+          <ellipse
+            cx="30"
+            cy="30"
+            rx="6"
+            ry="3"
+            transform="rotate(10 30 30)"
+            fill="currentColor"
+          />
+          <circle cx="35" cy="15" r="3" fill="currentColor" />
+        </svg>
+        <svg
+          class="corner-flourish corner-flourish--br"
+          viewBox="0 0 100 100"
+          aria-hidden="true"
+        >
+          <path
+            d="M5,95 C15,70 10,40 35,15"
+            stroke="currentColor"
+            stroke-width="1.4"
+            fill="none"
+            stroke-linecap="round"
+          />
+          <ellipse
+            cx="18"
+            cy="70"
+            rx="6"
+            ry="3"
+            transform="rotate(-40 18 70)"
+            fill="currentColor"
+          />
+          <ellipse
+            cx="24"
+            cy="50"
+            rx="6"
+            ry="3"
+            transform="rotate(-20 24 50)"
+            fill="currentColor"
+          />
+          <ellipse
+            cx="30"
+            cy="30"
+            rx="6"
+            ry="3"
+            transform="rotate(10 30 30)"
+            fill="currentColor"
+          />
+          <circle cx="35" cy="15" r="3" fill="currentColor" />
+        </svg>
+
+        <div class="cover-inner">
+          <p class="eyebrow">Cuma surat kecil</p>
+          <h1 class="cover-title">Cesaa Bawell,</h1>
+          <p class="cover-sub">
+            yang lagi berjuang, tapi tetep terus melangkah.
+          </p>
+
+          <div class="envelope-wrap">
+            <button
+              class="envelope-btn"
+              id="envelopeBtn"
+              aria-label="Buka surat"
+            >
+              <span class="envelope-base"></span>
+              <span class="envelope-flap"></span>
+              <span class="envelope-seal">♥</span>
+            </button>
+          </div>
+          <p class="tap-hint">👆 Click Amplopnya untuk membuka</p>
+        </div>
+      </section>
+
+      <!-- CONTENT -->
+      <main class="content" id="content" aria-hidden="true">
+        <p class="intro-line" style="font-size: 26px">
+          Ini bukan surat panjang. Cuma beberapa hal kecil yang mau aku bilang,
+          satu per satu.
+        </p>
+
+        <div class="divider" aria-hidden="true">
+          <span class="divider-line"></span>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path
+              d="M12 20s-7-4.35-9.5-8.5C0.5 7.5 3 4 6.5 4c2 0 3.5 1.2 4.5 2.7C12 5.2 13.5 4 15.5 4 19 4 21.5 7.5 19.5 11.5 17 15.65 12 20 12 20z"
+            />
+          </svg>
+          <span class="divider-line"></span>
+        </div>
+
+        <div class="notes" id="notesContainer"></div>
+
+        <div class="divider" aria-hidden="true">
+          <span class="divider-line"></span>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path
+              d="M12 20s-7-4.35-9.5-8.5C0.5 7.5 3 4 6.5 4c2 0 3.5 1.2 4.5 2.7C12 5.2 13.5 4 15.5 4 19 4 21.5 7.5 19.5 11.5 17 15.65 12 20 12 20z"
+            />
+          </svg>
+          <span class="divider-line"></span>
+        </div>
+
+        <footer class="closing">
+          <p class="closing-line">
+            Semangat teruss cesaaaa jgn gampang menyerah okayyy👌🩶
+          </p>
+
+          <button class="heart-btn" id="heartBtn">Click Dong</button>
+          <p class="thanks-note" id="thanksNote" hidden>
+            Makasih yaa udah baca sampai sini🤗.
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <div class="hearts-layer" id="heartsLayer" aria-hidden="true"></div>
+
+    <!--
+      GANTI MUSIK DI SINI:
+      Taruh file MP3 kamu di folder yang SAMA dengan file index.html ini,
+      lalu ganti "musik.mp3" di bawah dengan nama file musikmu.
+      Contoh: kalau file musikmu bernama "lagu-kita.mp3", ubah jadi src="lagu-kita.mp3"
+    -->
+    <audio id="bgMusic" src="sempurna.mp3" loop preload="auto"></audio>
+
+    <script>
+      // ---- Ubah kalimat semangat di sini ----
+      const messages = [
+        "Aku tahu belakangan ini nggak selalu mudah buat kamu. Tapi aku lihat, kamu tetap bangun setiap pagi dan mencoba lagi. Itu bukan hal kecil.",
+        "Nggak apa-apa kalau hari ini terasa berat. Kamu nggak harus selalu kuat di setiap detik — cukup terus melangkah, sekecil apa pun langkahnya.",
+        "Aku bangga sama kamu. Bukan cuma karena hasil yang kamu capai, tapi karena caramu terus mencoba meski capek.",
+        "Kalau kamu lupa, aku mau ingatkan: kamu jauh lebih kuat dari yang kamu kira, dan jauh lebih berharga dari yang kamu sadari.",
+        "Istirahat sebentar itu bukan menyerah. Kadang yang kamu butuhkan cuma jeda, bukan berhenti sama sekali.",
+        "Apa pun yang sedang kamu hadapi sekarang, kamu nggak menghadapinya sendirian. Aku di sini, di sampingmu.",
+        "Terus berjalan, ya. Pelan-pelan juga nggak masalah, yang penting kamu nggak berhenti percaya sama dirimu sendiri.",
+      ];
+
+      const notesContainer = document.getElementById("notesContainer");
+      messages.forEach((text) => {
+        const div = document.createElement("div");
+        div.className = "note";
+
+        const mark = document.createElement("span");
+        mark.className = "note-mark";
+        mark.setAttribute("aria-hidden", "true");
+        mark.textContent = "❝";
+
+        const p = document.createElement("p");
+        p.textContent = text;
+
+        div.appendChild(mark);
+        div.appendChild(p);
+        notesContainer.appendChild(div);
+      });
+
+      // ================= MUSIK ROMANTIS (file MP3 kustom) =================
+      const bgMusic = document.getElementById("bgMusic");
+      bgMusic.volume = 0.55; // atur volume 0.0 (hening) - 1.0 (paling keras)
+
+      const musicToggle = document.getElementById("musicToggle");
+      let musicOn = false;
+
+      function startMusic() {
+        bgMusic.currentTime = 0;
+        const playPromise = bgMusic.play();
+        if (playPromise) {
+          playPromise.catch(() => {
+            // Browser sempat memblokir autoplay (jarang terjadi karena ini
+            // dipicu langsung dari klik amplop). Coba lagi saat toggle diklik.
+          });
+        }
+        musicOn = true;
+        musicToggle.classList.add("playing");
+        musicToggle.setAttribute("aria-pressed", "true");
+        musicToggle.setAttribute("aria-label", "Matikan musik");
+      }
+
+      function stopMusic() {
+        bgMusic.pause();
+        musicOn = false;
+        musicToggle.classList.remove("playing");
+        musicToggle.setAttribute("aria-pressed", "false");
+        musicToggle.setAttribute("aria-label", "Aktifkan musik");
+      }
+
+      musicToggle.addEventListener("click", () => {
+        if (musicOn) stopMusic();
+        else startMusic();
+      });
+
+      // ================= PARTIKEL AMBIEN ================
+      const ambientLayer = document.getElementById("ambientLayer");
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      const AMBIENT_GLYPHS = ["♥", "♥", "♥", "✦", "♪"];
+      const AMBIENT_COLORS = [
+        "var(--rose)",
+        "var(--rose-deep)",
+        "var(--lavender-deep)",
+        "var(--gold)",
+      ];
+      let ambientCount = 0;
+      const AMBIENT_MAX = 14;
+
+      function spawnPetal() {
+        if (reduceMotion || document.hidden || ambientCount >= AMBIENT_MAX) {
+          return;
+        }
+        const span = document.createElement("span");
+        span.className = "petal";
+        span.textContent =
+          AMBIENT_GLYPHS[Math.floor(Math.random() * AMBIENT_GLYPHS.length)];
+        span.style.left = Math.random() * 100 + "%";
+        span.style.color =
+          AMBIENT_COLORS[Math.floor(Math.random() * AMBIENT_COLORS.length)];
+        span.style.fontSize = 12 + Math.random() * 12 + "px";
+        span.style.animationDuration = 9 + Math.random() * 7 + "s";
+        span.style.setProperty("--sway", Math.random() * 80 - 40 + "px");
+        ambientLayer.appendChild(span);
+        ambientCount++;
+        span.addEventListener("animationend", () => {
+          span.remove();
+          ambientCount--;
+        });
+      }
+
+      if (!reduceMotion) {
+        setInterval(spawnPetal, 1500);
+        setTimeout(spawnPetal, 400);
+      }
+
+      // ================= PROGRESS BACA ================
+      const progressBar = document.getElementById("progressBar");
+      const progressFill = document.getElementById("progressFill");
+
+      function updateProgress() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const pct =
+          docHeight > 0
+            ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100))
+            : 0;
+        progressFill.style.width = pct + "%";
+      }
+      window.addEventListener("scroll", updateProgress, { passive: true });
+
+      // ---- Buka amplop ----
+      const envelopeBtn = document.getElementById("envelopeBtn");
+      const cover = document.getElementById("cover");
+      const content = document.getElementById("content");
+
+      envelopeBtn.addEventListener("click", () => {
+        envelopeBtn.classList.add("open");
+        envelopeBtn.disabled = true;
+        startMusic(); // musik mulai bareng surat dibuka
+        setTimeout(() => {
+          cover.style.display = "none";
+          content.classList.add("visible");
+          content.removeAttribute("aria-hidden");
+          window.scrollTo({ top: 0 });
+          progressBar.classList.add("visible");
+          musicToggle.classList.add("visible");
+          updateProgress();
+        }, 650);
+      });
+
+      // ---- Reveal catatan saat discroll ----
+      const notes = document.querySelectorAll(".note");
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.25 },
+        );
+        notes.forEach((n) => observer.observe(n));
+      } else {
+        notes.forEach((n) => n.classList.add("in-view"));
+      }
+
+      // ---- Tombol kirim semangat balik ----
+      const heartBtn = document.getElementById("heartBtn");
+      const heartsLayer = document.getElementById("heartsLayer");
+      const thanksNote = document.getElementById("thanksNote");
+
+      heartBtn.addEventListener("click", () => {
+        for (let i = 0; i < 8; i++) {
+          const span = document.createElement("span");
+          span.className = "floating-heart";
+          span.textContent = "♥";
+          span.style.left = 38 + Math.random() * 24 + "%";
+          span.style.animationDelay = i * 0.12 + "s";
+          span.style.setProperty("--drift", Math.random() * 60 - 30 + "px");
+          heartsLayer.appendChild(span);
+          span.addEventListener("animationend", () => span.remove());
+        }
+        thanksNote.hidden = false;
+      });
+    </script>
+  </body>
+</html>
